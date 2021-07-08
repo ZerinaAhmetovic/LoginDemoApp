@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LoginDemo</string>
+    <string name="name">Enter name</string>
+    <string name="password">Enter password</string>
+    <string name="login">Login</string>
+    <string name="attempts">No of attempts:</string>
+    <string name="second_activity">Second Activity</string>
+    <string name="toast_incorrect_entry">Please enter all the details correctly</string>
+    <string name="toast_no_entry">Please enter necessary details</string>
+    <string name="toast_short_pass">Please enter password with minimum 8 characters.</string>
+    <string name="toast_correct_entry">Login successful</string>
+    <string name="register">Register</string>
+    <string name="sign_up">Don\'t have an account? Click here to Sign up</string>
+    <string name="toast_success">Registration successful!</string>
+    <string name="toast_taken_username">Username already taken!</string>
+</resources>

@@ -1,0 +1,56 @@
+/*
+ * Copyright 2017 - 2018 Vorlonsoft LLC
+ *
+ * Licensed under The MIT License (MIT)
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        //noinspection MinSdkTooLow
+        minSdkVersion 9
+        targetSdkVersion 28
+        versionCode version_code
+        versionName version
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility java_version
+        targetCompatibility java_version
+    }
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode true
+                proguardFiles getDefaultProguardFile('proguard-defaults.txt'), 'project-proguard-rules.pro', 'proguard-rules.pro'
+                testProguardFile 'project-test-proguard-rules.pro'
+            }
+        }
+        debug {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                testProguardFile 'project-test-proguard-rules.pro'
+            }
+            matchingFallbacks = ['release']
+        }
+    }
+}
+dependencies {
+    compileOnly 'androidx.annotation:annotation:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+}
+apply from: 'https://raw.github.com/Vorlonsoft/EasyDokkaPlugin/master/dokka.gradle'
+apply from: 'https://raw.github.com/Vorlonsoft/GradleMavenPush/master/maven-push.gradle'
